@@ -9,14 +9,14 @@ import numpy as np
 # 1.先找到轮廓
 img = cv2.imread('unregular.jpg', 0)
 _, thresh = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-image, contours, hierarchy = cv2.findContours(thresh, 3, 2)
+contours, hierarchy = cv2.findContours(thresh, 3, 2)
 cnt = contours[0]
 
 # 2.进行多边形逼近，得到多边形的角点
 approx = cv2.approxPolyDP(cnt, 3, True)
 
 # 3.画出多边形
-image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 cv2.polylines(image, [approx], True, (0, 255, 0), 2)
 print(len(approx))  # 角点的个数
 cv2.imshow('approxPloyDP', image)
@@ -27,14 +27,14 @@ cv2.waitKey(0)
 # 1.先找到轮廓
 img = cv2.imread('convex.jpg', 0)
 _, thresh = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-image, contours, hierarchy = cv2.findContours(thresh, 3, 2)
+contours, hierarchy = cv2.findContours(thresh, 3, 2)
 cnt = contours[0]
 
 # 2.寻找凸包，得到凸包的角点
 hull = cv2.convexHull(cnt)
 
 # 3.绘制凸包
-image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 cv2.polylines(image, [hull], True, (0, 255, 0), 2)
 cv2.imshow('convex hull', image)
 cv2.waitKey(0)

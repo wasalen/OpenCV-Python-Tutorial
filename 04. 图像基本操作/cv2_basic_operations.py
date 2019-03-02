@@ -4,7 +4,7 @@
 import cv2
 
 img = cv2.imread('lena.jpg')
-
+print(type(img))
 # 1.获取像素的值
 px = img[100, 90]
 print(px)  # [103 98 197]

@@ -9,7 +9,7 @@ def track_back(x):
     pass
 
 
-img = cv2.imread('sudoku.jpg', 0)
+img = cv2.imread('123.jpg', 0)
 cv2.namedWindow('window')
 
 # 创建滑动条

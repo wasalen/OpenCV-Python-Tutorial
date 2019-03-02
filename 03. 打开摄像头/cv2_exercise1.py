@@ -20,7 +20,7 @@ frames = capture.get(cv2.CAP_PROP_FRAME_COUNT)
 # 创建滑动条
 cv2.createTrackbar('process', 'window', 1, int(frames), track_back)
 
-while(capture.isOpened()):
+while capture.isOpened():
     ret, frame = capture.read()
 
     cv2.imshow('window', frame)

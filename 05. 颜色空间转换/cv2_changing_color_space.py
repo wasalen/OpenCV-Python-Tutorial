@@ -7,11 +7,10 @@ img = cv2.imread('lena.jpg')
 
 # 1.转成灰度图
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-cv2.imshow('img', img)
+# cv2.namedWindow('gray', cv2.WINDOW_NORMAL)
+# cv2.imshow('img', img)
 cv2.imshow('gray', img_gray)
 cv2.waitKey(0)
-
 
 # 2.获取所有的转换模式
 flags = [i for i in dir(cv2) if i.startswith('COLOR_')]
@@ -20,10 +19,12 @@ print(flags)
 # 蓝色的HSV值
 import numpy as np
 
+"""
+OpenCV中色调H范围为[0,179]，饱和度S是[0,255]，明度V是[0,255]。虽然H的理论数值是0°~360°，但8位图像像素点的最大值是255，所以OpenCV中除以了2，某些软件可能使用不同的尺度表示，所以同其他软件混用时，记得归一化。
+"""
 blue = np.uint8([[[255, 0, 0]]])
 hsv_blue = cv2.cvtColor(blue, cv2.COLOR_BGR2HSV)
 print(hsv_blue)  # [[[120 255 255]]]
-
 
 # 3.追踪蓝色物体
 capture = cv2.VideoCapture(0)
@@ -32,7 +33,7 @@ capture = cv2.VideoCapture(0)
 lower_blue = np.array([100, 110, 110])
 upper_blue = np.array([130, 255, 255])
 
-while(True):
+while True:
     # 1.捕获视频中的一帧
     ret, frame = capture.read()
 

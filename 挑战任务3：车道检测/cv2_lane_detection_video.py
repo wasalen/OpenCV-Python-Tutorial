@@ -147,7 +147,7 @@ def least_squares_fit(point_list, ymin, ymax):
 
 
 if __name__ == "__main__":
-    output = 'test_videos/cv2_yellow_lane_green_mark.mp4'
-    clip = VideoFileClip("test_videos/cv2_yellow_lane.mp4")
+    output = 'test_videos/cv2_white_lane_green_mark.mp4'
+    clip = VideoFileClip("test_videos/cv2_white_lane.mp4")
     out_clip = clip.fl_image(process_an_image)
     out_clip.write_videofile(output, audio=False)

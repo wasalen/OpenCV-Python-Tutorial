@@ -9,7 +9,7 @@ capture = cv2.VideoCapture(0)
 fourcc = cv2.VideoWriter_fourcc(*'MJPG')
 outfile = cv2.VideoWriter('output.avi', fourcc, 25., (640, 480))
 
-while(capture.isOpened()):
+while capture.isOpened():
     ret, frame = capture.read()
 
     if ret:

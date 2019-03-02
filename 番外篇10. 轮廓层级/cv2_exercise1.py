@@ -11,7 +11,7 @@ _, thresh = cv2.threshold(
     img_gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
 # 2.使用cv2.RETR_CCOMP寻找轮廓
-image, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_CCOMP, 2)
+contours, hierarchy = cv2.findContours(thresh, cv2.RETR_CCOMP, 2)
 
 # 3.找到内层轮廓并填充
 # hierarchy的形状为(1,6,4)，使用np.squeeze压缩一维数据，变成(6,4)

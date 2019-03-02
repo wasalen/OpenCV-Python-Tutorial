@@ -1,2 +1,14 @@
 /挑战任务3：车道检测/test_pictures/
 /挑战任务3：车道检测/test_videos/
+*.xml
+*.iml
+*.caffemodel
+*.prototxt
+*.avi
+*.mp4
+/venv
+*.jpg
+*.gif
+*.png
+
+

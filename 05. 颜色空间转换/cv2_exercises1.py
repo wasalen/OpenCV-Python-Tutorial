@@ -9,7 +9,7 @@ import numpy as np
 # Green：[[[ 60 255 255]]]
 # Red：[[[  0 255 255]]]
 
-capture = cv2.VideoCapture(1)
+capture = cv2.VideoCapture(0)
 
 # 蓝色的范围
 lower_blue = np.array([100, 110, 110])

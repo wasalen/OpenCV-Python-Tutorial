@@ -15,6 +15,15 @@ h, w = template.shape[:2]  # rows->h, cols->w
 methods = ['cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR',
            'cv2.TM_CCORR_NORMED', 'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']
 
+"""
+平方差匹配CV_TM_SQDIFF：用两者的平方差来匹配，最好的匹配值为0
+归一化平方差匹配CV_TM_SQDIFF_NORMED
+相关匹配CV_TM_CCORR：用两者的乘积匹配，数值越大表明匹配程度越好
+归一化相关匹配CV_TM_CCORR_NORMED
+相关系数匹配CV_TM_CCOEFF：用两者的相关系数匹配，1表示完美的匹配，-1表示最差的匹配
+归一化相关系数匹配CV_TM_CCOEFF_NORMED
+"""
+
 for meth in methods:
     img2 = img.copy()
 
@@ -66,4 +75,5 @@ print(np.where(x > 5))
 
 x = [1, 2, 3]
 y = [4, 5, 6]
-print(list(zip(x, y)))  # [(1, 4), (2, 5), (3, 6)]
+
+print(list(zip(x, y, x)))  # [(1, 4), (2, 5), (3, 6)]

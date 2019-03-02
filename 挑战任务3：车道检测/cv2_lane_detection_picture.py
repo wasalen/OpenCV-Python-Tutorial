@@ -146,7 +146,7 @@ def least_squares_fit(point_list, ymin, ymax):
 
 
 if __name__ == "__main__":
-    img = cv2.imread('test_pictures/lane2.jpg')
+    img = cv2.imread('./test_pictures/lane.jpg')
     result = process_an_image(img)
     cv2.imshow("lane", np.hstack((img, result)))
     cv2.waitKey(0)

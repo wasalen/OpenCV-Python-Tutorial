@@ -10,7 +10,7 @@ _, thresh = cv2.threshold(
     img_gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
 # 2.寻找轮廓 cv2.RETR_TREE
-image, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, 2)
+contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, 2)
 
 # 3.绘制轮廓
 print(len(contours), hierarchy, sep='\n')  # 8条
@@ -23,7 +23,7 @@ cv2.waitKey(0)
 
 # 不同轮廓寻找方式的不同
 # cv2.RETR_LIST
-_, _, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, 2)
+_, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, 2)
 print(hierarchy)
 # 结果应该如下：
 # [[[1 - 1 - 1 - 1]
@@ -37,7 +37,7 @@ print(hierarchy)
 
 
 # cv2.RETR_EXTERNAL
-_, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, 2)
+contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, 2)
 print(len(contours), hierarchy, sep='\n')
 # 结果应该如下：
 # 3
@@ -47,7 +47,7 @@ print(len(contours), hierarchy, sep='\n')
 
 
 # cv2.RETR_CCOMP
-_, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_CCOMP, 2)
+contours, hierarchy = cv2.findContours(thresh, cv2.RETR_CCOMP, 2)
 print(hierarchy)
 # 结果应该如下：
 # [[[1 - 1 - 1 - 1]
